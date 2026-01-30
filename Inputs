@@ -1,30 +1,31 @@
-import pandas as pd
-import numpy as np
-from datetime import datetime, timedelta
-
-# Configurações iniciais
-np.random.seed(42)
-n_linhas = 200
-data_inicial = datetime(2025, 1, 1)
-
-# 1. Gerando datas sequenciais
-datas = [data_inicial + timedelta(days=i) for i in range(n_linhas)]
-
-# 2. Gerar temperaturas (oscilando entre 15°C e 40°C)
-temperaturas = np.random.uniform(15, 40, n_linhas)
-
-# 3. Gerar vendas com base na temperatura (Lógica: Vendas = Temp * 5 + ruído)
-# Adicionando um ruído aleatório para não ser uma conta exata
-ruido = np.random.normal(0, 10, n_linhas)
-vendas = (temperaturas * 5.5) + ruido
-
-# Criando o DataFrame
-df = pd.DataFrame({
-    'Data': [d.strftime('%Y-%m-%d') for d in datas],
-    'Temperatura_Media': np.round(temperaturas, 1),
-    'Vendas_Sorvete': np.round(vendas).astype(int)
-})
-
-# Salvando em CSV
-df.to_csv('dados_sorvete_azure.csv', index=False)
-print("Arquivo 'dados_sorvete_azure.csv' gerado com sucesso!")
+Data,Temperatura_Media,Vendas_Sorvete
+2025-10-01,25.4,115
+2025-10-02,28.9,138
+2025-10-03,32.1,170
+2025-10-04,19.5,75
+2025-10-05,21.2,88
+2025-10-06,35.0,210
+2025-10-07,33.4,195
+2025-10-08,24.1,110
+2025-10-09,20.8,82
+2025-10-10,18.5,65
+2025-10-11,29.3,145
+2025-10-12,31.0,162
+2025-10-13,27.5,130
+2025-10-14,23.2,95
+2025-10-15,36.8,225
+2025-10-16,30.5,155
+2025-10-17,22.1,90
+2025-10-18,26.4,120
+2025-10-19,34.2,205
+2025-10-20,31.7,168
+2025-10-21,17.2,55
+2025-10-22,25.9,118
+2025-10-23,28.1,132
+2025-10-24,32.6,180
+2025-10-25,24.8,105
+2025-10-26,20.1,78
+2025-10-27,29.7,148
+2025-10-28,34.5,208
+2025-10-29,30.2,152
+2025-10-30,22.5,92
