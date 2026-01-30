@@ -1,0 +1,30 @@
+import pandas as pd
+import numpy as np
+from datetime import datetime, timedelta
+
+# Configurações iniciais
+np.random.seed(42)
+n_linhas = 200
+data_inicial = datetime(2025, 1, 1)
+
+# 1. Gerando datas sequenciais
+datas = [data_inicial + timedelta(days=i) for i in range(n_linhas)]
+
+# 2. Gerar temperaturas (oscilando entre 15°C e 40°C)
+temperaturas = np.random.uniform(15, 40, n_linhas)
+
+# 3. Gerar vendas com base na temperatura (Lógica: Vendas = Temp * 5 + ruído)
+# Adicionando um ruído aleatório para não ser uma conta exata
+ruido = np.random.normal(0, 10, n_linhas)
+vendas = (temperaturas * 5.5) + ruido
+
+# Criando o DataFrame
+df = pd.DataFrame({
+    'Data': [d.strftime('%Y-%m-%d') for d in datas],
+    'Temperatura_Media': np.round(temperaturas, 1),
+    'Vendas_Sorvete': np.round(vendas).astype(int)
+})
+
+# Salvando em CSV
+df.to_csv('dados_sorvete_azure.csv', index=False)
+print("Arquivo 'dados_sorvete_azure.csv' gerado com sucesso!")
