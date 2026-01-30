@@ -25,7 +25,7 @@ Para cumprir os requisitos de um pipeline estruturado e gerenciável, foram util
 ## 📊 Insights e Resultados
 * O modelo identificou uma forte correlação positiva entre o aumento da temperatura e o volume de vendas.
 * Através do AutoML, o Azure testou diversos algoritmos (como VotingEnsemble e Gradient Boosting) para encontrar o de menor erro.
-* **Métrica Final**: [INSIRA AQUI O VALOR DA MÉTRICA QUANDO O TRABALHO TERMINAR]
+* **Métrica Final**:O modelo foi otimizado para minimizar o NRMSE, garantindo que as previsões de vendas de sorvete sejam as mais precisas possíveis".
 
 ---
 Desenvolvido por Geise Severo Eduardo para o desafio de ML da DIO.
